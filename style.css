@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#wrapper{
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 10px;   /* if we want to perform task in z-axis then we should on perspective by given some value(any value)*/
+
+   
+}
+
+.container{
+  position: relative; /* to make absolute positio in image we use relative here*/
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d; /* to perform task in 3-d we should always give transform-style to this*/
+  z-index: -1;   /* to separete things on same plane*/
+
+}
+
+.background, .foreground{
+    position: absolute;   /* for overlapping of images we must use position == absolute here and for this last ancestor position should be non-static(relstive etc)*/
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    object-fit: cover;  /* fit image in container :--used to specify how an <img> or <video> should be resized to fit it's container*/
+}
+
+/* to differentiate between background image and goreground image*/
+
+.background{
+    transform: translateZ(-40px) scale(6);
+}
+.foreground{
+    transform: translateZ(-20px) scale(3);
+}
+
+h1{
+    position: absolute;
+    top: 5rem;
+
+    font-size: 10rem;
+    letter-spacing: 4px;
+    font-family: sans-serif;
+    color: white;
+    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+section{
+    background-color: rgb(45,45,45);
+    color: white;
+    padding: 5rem 0;
+}
+.secHeading{
+    font-size: 5rem;
+    padding: 0 10rem;
+}
+
+.text{
+    font-size: 1.5rem;
+    padding: 0 10rem;
+    margin: 5rem 0;
+}
+
+.bg{
+    position: relative;  /* relative bcz we have give heading absolute position bcz of overlapping of image and text*/
+    width: 100%;
+    background-attachment: fixed;  /* bacground image will be fixed , do not move on scrolling*/
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+}
+
+.desc{
+    position: absolute;
+    background-color: white;
+    color: black;
+    font-size: 3.5rem;
+    font-weight: 600;
+    padding: 0.5rem 2.5rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.bg1{
+    background-image: url(img/sport-1.jpg);
+}
+
+.bg2{
+    background-image: url(img/sport-2.jpg);
+}
+
+.bg3{
+    background-image: url(img/sport-3.jpg);
+}
